@@ -4,7 +4,7 @@ INCLUDES_DIRECTORY = includes
 
 CPPFLAGS = -I$(INCLUDES_DIRECTORY) -Werror -Wall -std=c++23 -MMD -MP
 CFLAGS   = -I$(INCLUDES_DIRECTORY) -Werror -Wall -MMD -MP 
-LDFLAGS = -lglfw -ldl -lGL -lnoise -lm 
+LDFLAGS = -lm 
 
 CPP_SOURCES := $(shell find src      -name '*.cpp')
 C_SOURCES   := $(shell find src      -name '*.c')
