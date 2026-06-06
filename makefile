@@ -4,13 +4,12 @@ INCLUDES_DIRECTORY = includes
 
 CPPFLAGS = -I$(INCLUDES_DIRECTORY) -Werror -Wall -std=c++23 -MMD -MP
 CFLAGS   = -I$(INCLUDES_DIRECTORY) -Werror -Wall -MMD -MP 
-LDFLAGS = -lm 
+LDFLAGS = -lm -lwiringPi
 
 CPP_SOURCES := $(shell find src      -name '*.cpp')
-C_SOURCES   := $(shell find src      -name '*.c')
-GLAD_SOURCE := $(shell find includes -name 'glad.c')
+C_SOURCES   := $(shell find src      -name '*.c'   )
 
-OBJS := $(CPP_SOURCES:%.cpp=build/%.o) $(C_SOURCES:%.c=build/%.o) $(GLAD_SOURCE:%.c=build/%.o) 
+OBJS := $(CPP_SOURCES:%.cpp=build/%.o) $(C_SOURCES:%.c=build/%.o)
 DEPS := $(OBJS:.o=.d)
 
 all: bin/executable

@@ -2,6 +2,17 @@
 
 int main(int ArgC, char* ArgV[])
 {
-    std::cout << "Hello, World!" << std::endl;
+    while (true)
+    {
+        system("clear");
+        std::string Input;
+        std::cout << "> ";
+        std::getline(std::cin, Input);
+
+        if (Input == "e") break;
+
+
+    }
+
     return 0;
 }
