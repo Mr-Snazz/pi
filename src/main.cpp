@@ -1,18 +1,10 @@
-#include <iostream>
+#include "core/core.hpp"
 
 int main(int ArgC, char* ArgV[])
 {
-    while (true)
-    {
-        system("clear");
-        std::string Input;
-        std::cout << "> ";
-        std::getline(std::cin, Input);
-
-        if (Input == "e") break;
-
-
-    }
+    SPI::Initialize();
+    SPI::MainLoop();
+    SPI::FreeResources();
 
     return 0;
 }
