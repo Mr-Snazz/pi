@@ -1,0 +1,7 @@
+take in inputs and map to events
+events need to be dynamic
+table in database to store event mapping
+table in database to store when events happen
+restful api to retrieve data
+start date and end date
+store whether or not data has been retrieved

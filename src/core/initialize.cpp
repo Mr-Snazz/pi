@@ -8,5 +8,5 @@ void SPI::Initialize()
 {
     if (wiringPiSetupGpio() == -1) throw std::runtime_error("Failed to initialize wiringPi");
 
-    pinMode(17, OUTPUT);
+    
 }
