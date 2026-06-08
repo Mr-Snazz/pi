@@ -6,8 +6,8 @@ CPPFLAGS = -I$(INCLUDES_DIRECTORY) -Werror -Wall -std=c++23 -MMD -MP
 CFLAGS   = -I$(INCLUDES_DIRECTORY) -Werror -Wall -MMD -MP 
 LDFLAGS = -lm -lwiringPi
 
-CPP_SOURCES := $(shell find src      -name '*.cpp')
-C_SOURCES   := $(shell find src      -name '*.c'   )
+CPP_SOURCES := $(shell find src -name '*.cpp')
+C_SOURCES   := $(shell find src -name '*.c'   )
 
 OBJS := $(CPP_SOURCES:%.cpp=build/%.o) $(C_SOURCES:%.c=build/%.o)
 DEPS := $(OBJS:.o=.d)
