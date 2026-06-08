@@ -15,6 +15,6 @@ void SPI::MainLoop()
         for (uint8_t I = 0u; I < SPI::TotalPins; ++I) SPI::SetBitInInteger(PinStates, I);
 
         SPI::EventsManager::ScanForEvents();
-        system("clear");
+        system("clear"); return;
     }
 }
