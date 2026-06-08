@@ -3,7 +3,8 @@
 #include <wiringPi.h>
 
 #include "core/core.hpp"
-#include "pins.hpp"
+#include "core/should-terminate.hpp"
+#include "pins/pins.hpp"
 #include "utilities/bit-manipulation.hpp"
 #include "events-manager/events-manager.hpp"
 
@@ -12,9 +13,19 @@ void SPI::MainLoop()
     while (true)
     {
         uint16_t PinStates{};
-        for (uint8_t I = 0u; I < SPI::TotalPins; ++I) SPI::SetBitInInteger(PinStates, I);
+        SPI::SetBitInInteger(PinStates, 4);
+        SPI::SetBitInInteger(PinStates, 5);
 
-        SPI::EventsManager::ScanForEvents();
-        system("clear"); return;
+        //for (int32_t Pin : SPI::InputPins) {
+        //    bool RecievingInput = digitalRead(Pin);
+        //    if (!RecievingInput) continue;
+
+        //    SPI::SetBitInInteger(PinStates, Pin);
+        //}
+
+        SPI::EventsManager::NotifyEvents(PinStates); 
+
+        bool ShouldTerminate = SPI::Terminate.load();
+        if (ShouldTerminate) break;
     }
 }

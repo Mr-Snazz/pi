@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 
+#include <vector>
+
 namespace SPI
 {
     constexpr int32_t InputPins[] = 
@@ -10,4 +12,9 @@ namespace SPI
     };
 
     constexpr uint8_t TotalPins = sizeof(InputPins) / sizeof(InputPins[0]);
+
+    inline uint16_t GetPinsKey(const std::vector<int>& Pins);
 }
+
+#include "pins/pins.inl"
+

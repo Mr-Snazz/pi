@@ -1,14 +1,8 @@
 #pragma once
 
-namespace SPI
+namespace SPI::EventsManager
 {
-    namespace
-    {
+    void Initialize();
 
-    }
-
-    namespace EventsManager
-    {
-        void ScanForEvents();
-    }
+    void NotifyEvents(uint16_t PinsStates);
 }
