@@ -2,5 +2,5 @@
 
 void SPI::FreeResources()
 {
-    // Code to free resources here
+
 }
