@@ -1,0 +1,4 @@
+{
+    "event_name": "test",
+    "trigger_pins": [ 4, 5 ]
+}
