@@ -8,11 +8,12 @@
 #include "utilities/bit-manipulation.hpp"
 #include "events-manager/events-manager.hpp"
 
+#include <iostream>
 void SPI::MainLoop()
 {
     while (true)
     {
-        SPI::Pins PinStates;
+        SPI::Pins PinStates{};
         SPI::SetBitInInteger(PinStates, 26);
         SPI::SetBitInInteger(PinStates, 27);
 
@@ -26,6 +27,6 @@ void SPI::MainLoop()
         SPI::EventsManager::NotifyEvents(PinStates); 
 
         bool ShouldTerminate = SPI::Terminate.load();
-        if (ShouldTerminate) break;
+        if (ShouldTerminate) break; 
     }
 }

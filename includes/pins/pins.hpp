@@ -4,6 +4,8 @@
 
 #include <vector>
 
+#include "pins/pins.hpp"
+
 namespace SPI
 {
     constexpr int32_t InputPins[] = 
@@ -15,7 +17,7 @@ namespace SPI
 
     typedef uint32_t Pins;
 
-    inline uint16_t GetPinsKey(const std::vector<int>& Pins);
+    inline SPI::Pins GetPinsKey(const std::vector<int>& Pins);
 }
 
 #include "pins/pins.inl"

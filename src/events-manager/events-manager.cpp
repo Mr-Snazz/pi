@@ -13,7 +13,7 @@
 #include "events-manager/event.hpp"
 #include "core/should-terminate.hpp"
 
-std::unordered_map<uint16_t, SPI::EventsManager::Event> Events;
+std::unordered_map<SPI::Pins, SPI::EventsManager::Event> Events;
 std::mutex EventsMutex;
 
 void ScanForEvents();
@@ -65,7 +65,7 @@ void ScanForEvents()
         std::string Name = Data["event_name"].get<std::string>();
 
         std::vector<int> TriggerPins = Data["trigger_pins"].get<std::vector<int>>();
-        uint16_t TriggerKey = SPI::GetPinsKey(TriggerPins);
+        SPI::Pins TriggerKey = SPI::GetPinsKey(TriggerPins);
 
         EventsToAdd.push_back(SPI::EventsManager::Event(Name, TriggerKey));
     }
