@@ -13,6 +13,8 @@ namespace SPI
 
     constexpr uint8_t TotalPins = sizeof(InputPins) / sizeof(InputPins[0]);
 
+    typedef uint32_t Pins;
+
     inline uint16_t GetPinsKey(const std::vector<int>& Pins);
 }
 

@@ -11,7 +11,6 @@
 
 #include "events-manager/events-manager.hpp"
 #include "events-manager/event.hpp"
-#include "pins/pins.hpp"
 #include "core/should-terminate.hpp"
 
 std::unordered_map<uint16_t, SPI::EventsManager::Event> Events;
@@ -43,11 +42,11 @@ void SPI::EventsManager::Initialize()
     EventsScanThread.detach();
 }
 
-void SPI::EventsManager::NotifyEvents(uint16_t PinsStates)
+void SPI::EventsManager::NotifyEvents(SPI::Pins PinStates)
 {
     std::lock_guard<std::mutex> EventsLock(EventsMutex);
 
-    auto Iterator = Events.find(PinsStates);
+    auto Iterator = Events.find(PinStates);
     if (Iterator == Events.end()) return;
 
     Iterator->second.OnTrigger();
@@ -75,9 +74,9 @@ void ScanForEvents()
     for (size_t I = 0u; I < EventsToAdd.size(); ++I) {
         const SPI::EventsManager::Event Event = EventsToAdd[I];
 
-        auto Iterator = Events.find(Event.TriggerKey);
+        auto Iterator = Events.find(Event.TriggerPins);
         if (Iterator != Events.end()) continue;
 
-        Events.insert_or_assign(Event.TriggerKey, Event);
+        Events.insert_or_assign(Event.TriggerPins, Event);
     }
 }

@@ -12,9 +12,9 @@ void SPI::MainLoop()
 {
     while (true)
     {
-        uint16_t PinStates{};
-        SPI::SetBitInInteger(PinStates, 4);
-        SPI::SetBitInInteger(PinStates, 5);
+        SPI::Pins PinStates;
+        SPI::SetBitInInteger(PinStates, 26);
+        SPI::SetBitInInteger(PinStates, 27);
 
         //for (int32_t Pin : SPI::InputPins) {
         //    bool RecievingInput = digitalRead(Pin);

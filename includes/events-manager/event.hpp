@@ -10,9 +10,9 @@ namespace SPI::EventsManager
     {
     public:
         std::string Name;
-        uint32_t TriggerKey;
+        uint32_t TriggerPins;
 
-        Event(const std::string& Name, uint32_t TriggerKey);
+        Event(const std::string& IName, uint32_t ITriggerPins);
 
         void OnTrigger() const;
 

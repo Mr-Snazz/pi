@@ -6,8 +6,8 @@
 
 #include "events-manager/event.hpp"
 
-SPI::EventsManager::Event::Event(const std::string& Name, uint32_t TriggerKey)
-    : Name(Name), TriggerKey(TriggerKey)
+SPI::EventsManager::Event::Event(const std::string& IName, uint32_t ITriggerPins)
+    : Name(IName), TriggerPins(ITriggerPins)
 {
 
 }
