@@ -28,14 +28,12 @@ void SPI::EventsManager::Initialize()
 
             std::this_thread::sleep_for(std::chrono::seconds(1u));
 
-            bool ShouldTerminate = SPI::Terminate.load();
-            if (ShouldTerminate) break;
+            if (SPI::Terminate.load()) break;
         }
     };
 
     std::filesystem::create_directory("./events");
 
-    remove("output.txt");
     std::ofstream OutputFile("output.txt");
 
     std::thread EventsScanThread(EventsScanThreadFunction);

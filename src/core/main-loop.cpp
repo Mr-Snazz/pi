@@ -26,7 +26,6 @@ void SPI::MainLoop()
 
         SPI::EventsManager::NotifyEvents(PinStates); 
 
-        bool ShouldTerminate = SPI::Terminate.load();
-        if (ShouldTerminate) break; 
+        if (SPI::Terminate.load()) break; 
     }
 }
