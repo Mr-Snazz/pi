@@ -8,12 +8,13 @@
 #include "core/core.hpp"
 #include "pins/pins.hpp"
 #include "events-manager/events-manager.hpp"
-#include "core/should-terminate.hpp"
+#include "database/database.hpp"
 
 std::atomic<bool> SPI::Terminate = false;
 
 void SPI::Initialize()
 {
+    SPI::Database::Initialize();
     SPI::EventsManager::Initialize();
 
     //if (wiringPiSetupGpio() == -1) throw std::runtime_error("Failed to initialize wiringPi");
